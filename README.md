@@ -50,7 +50,7 @@
                 form.submit();
                 //window.location = 'new_page_url';
             }
-        }
+        
     });
     
   });
