@@ -46,13 +46,10 @@
     
     ga('send', {
             'hitType': 'event',
-            'eventCategory': 'Check URL',
-            'eventAction': 'submit',
-            'eventLabel': url + ' ' + email,
-            'hitCallback': function(){
-                // redirect:
-                //form.submit();
-                window.location = lambdaurl;
+            eventCategory: 'Check URL',
+            eventAction: 'submit',
+            eventLabel: url + ' ' + email,
+             transport: 'beacon'
             }
         
     });
