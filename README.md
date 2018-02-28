@@ -50,7 +50,7 @@
             eventAction: 'submit',
             eventLabel: url + ' ' + email,
              transport: 'beacon'
-            }
+         
         
     });
     
