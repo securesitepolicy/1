@@ -57,7 +57,7 @@
         
     });
     
-    setTimeout(function(){window.location = lambdaurl}, 100);
+    setTimeout(function(){window.location = lambdaurl}, 200);
     
   });
 
