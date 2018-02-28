@@ -25,7 +25,9 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-1241000-12');
+  var lambdaurl = 'https://3xaar5y426.execute-api.us-east-1.amazonaws.com/prod/dfp-vuln-checker';
   
+
   
   var form = document.getElementById('checkurl');
 
@@ -40,6 +42,8 @@
       email = (form.email.value || event.srcElement.email.value);
     }catch(e){}
     
+    lambdaurl += '?url=' + url;
+    
     ga('send', {
             'hitType': 'event',
             'eventCategory': 'Check URL',
@@ -47,11 +51,13 @@
             'eventLabel': url + ' ' + email,
             'hitCallback': function(){
                 // redirect:
-                form.submit();
-                //window.location = 'new_page_url';
+                //form.submit();
+                window.location = lambdaurl;
             }
         
     });
+    
+    setTimeout(function(){window.location = lambdaurl}, 100);
     
   });
 
