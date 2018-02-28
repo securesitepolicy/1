@@ -36,16 +36,23 @@
     event.preventDefault();
     var url = '', email = '';
     try{
-      url = form.url.value;
-      email = form.email.value;
-      console.log(event.srcElement.url,event.srcElement.email)
+      url = (form.url.value || event.srcElement.url.value);
+      email = (form.email.value || event.srcElement.email.value);
     }catch(e){}
-   
-    ga('send', 'event', 'Check URL', 'submit-' + url + ' ' + email, 'submit', {
-      hitCallback: function() {
-        form.submit();
-      }
+    
+    ga('send', {
+            'hitType': 'event',
+            'eventCategory': 'Check URL',
+            'eventAction': 'submit',
+            'eventLabel': url + ' ' + email,
+            'hitCallback': function(){
+                // redirect:
+                form.submit();
+                //window.location = 'new_page_url';
+            }
+        }
     });
+    
   });
 
 
