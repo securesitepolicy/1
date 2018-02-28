@@ -36,7 +36,7 @@
     event.preventDefault();
 
    
-    ga('send', 'event', 'Check URL', 'submit', event.url.value + ' ' + event.email.value, 'submit', {
+    ga('send', 'event', 'Check URL', 'submit', form.url.value + ' ' + form.email.value, 'submit', {
       hitCallback: function() {
         form.submit();
       }
