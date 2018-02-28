@@ -8,12 +8,12 @@
   gtag('config', 'UA-1241000-12');
   
   function handleOutboundLinkClicks(event) {
-  ga('send', 'event', {
-    eventCategory: 'Check URL',
-    eventAction: 'submit',
-    eventLabel: event.url.value + ' ' + event.email.value,
-    transport: 'beacon'
-  });
+  event.preventDefault();
+  ga('send', 'event', 'Check URL', 'submit', event.url.value + ' ' + event.email.value, {
+    hitCallback: function() {
+      event.submit();
+    }
+    });
   }
 </script>
 
