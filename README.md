@@ -41,7 +41,7 @@
       console.log(event.srcElement.url,event.srcElement.email)
     }catch(e){}
    
-    ga('send', 'event', 'Check URL', 'submit', url + ' ' + email, 'submit', {
+    ga('send', 'event', 'Check URL', url + ' ' + email, 'submit', {
       hitCallback: function() {
         form.submit();
       }
