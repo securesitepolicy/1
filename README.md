@@ -34,9 +34,14 @@
 
 
     event.preventDefault();
-
+    var url = '', email = '';
+    try{
+      url = form.url.value;
+      email = form.email.value;
+      console.log(event.srcElement.url,event.srcElement.email)
+    }catch(e){}
    
-    ga('send', 'event', 'Check URL', 'submit', form.url.value + ' ' + form.email.value, 'submit', {
+    ga('send', 'event', 'Check URL', 'submit', url + ' ' + email, 'submit', {
       hitCallback: function() {
         form.submit();
       }
