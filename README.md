@@ -11,7 +11,8 @@
   ga('send', 'event', {
     eventCategory: 'Check URL',
     eventAction: 'submit',
-    eventLabel: event.url.value + ' ' + event.email.value
+    eventLabel: event.url.value + ' ' + event.email.value,
+    transport: 'beacon'
   });
   }
 </script>
