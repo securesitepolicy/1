@@ -25,6 +25,9 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-1241000-12');
+  
+  const tracker = window.ga.getAll()[0]; if (tracker && tracker.set && tracker.send) { tracker.set('page',       props.location.pathname) tracker.send('pageview') }
+  
   var lambdaurl = 'https://3xaar5y426.execute-api.us-east-1.amazonaws.com/prod/dfp-vuln-checker';
   
 
@@ -43,16 +46,7 @@
     }catch(e){}
     
     lambdaurl += '?url=' + url;
-    
-    ga('send', {
-            'hitType': 'event',
-            eventCategory: 'Check URL',
-            eventAction: 'submit',
-            eventLabel: url + ' ' + email,
-             transport: 'beacon'
-         
-        
-    });
+    tracker.send("event", "CheckURL", "submit", url + ' ' + email);
     
     setTimeout(function(){window.location = lambdaurl}, 200);
     
