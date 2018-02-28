@@ -11,7 +11,7 @@
 
 <form method="get" action="https://3xaar5y426.execute-api.us-east-1.amazonaws.com/prod/dfp-vuln-checker">
     <input name="url" id="url" class="input-lg"/>
-    <input type="submit" value="Check for DFP Vulnerability" class="input-lg" onclick="handleOutboundLinkClicks"/>
+    <input type="submit" value="Check for DFP Vulnerability" class="input-lg" onclick="handleOutboundLinkClicks()"/>
 </form>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
