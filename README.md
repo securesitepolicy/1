@@ -57,13 +57,13 @@ ga('send', 'pageview');
             transport: 'beacon' 
     });
     
-    lambdaurl += '?url=' + url;
+    lambdaurlrequest = lambdaurl + '?url=' + url;
     //tracker.send("event", "CheckURL", "submit", url + ' ' + email);
     
-    //setTimeout(function(){window.location = lambdaurl}, 200);
+    //setTimeout(function(){window.location = lambdaurlrequest}, 200);
     
      var xhr = new XMLHttpRequest();
-    xhr.open('GET', lambdaurl, true);
+    xhr.open('GET', lambdaurlrequest, true);
     xhr.responseType = 'text';
     output.innerHTML='Checking site now....'
     
