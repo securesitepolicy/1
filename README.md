@@ -24,21 +24,25 @@ ga('send', 'pageview');
     <label for="url">Site: <input name="url" id="url" class="input-lg" placeholder="URL"></label>
     <label for="email">Email Report: <input name="email" id="email" class="input-lg" placeholder="Your Email (optional)"></label> &nbsp;<input type="submit" value="Check for DFP Vulnerability" class="input-lg"> <br>
 </form>
+<hr/>
+<div style="border:1px solid #evevev;width:100%;height:500px;hidden:scroll" id="output"></div>
 
 <script>
  
   
   var lambdaurl = 'https://3xaar5y426.execute-api.us-east-1.amazonaws.com/prod/dfp-vuln-checker';
   
-
+ 
   
   var form = document.getElementById('checkurl');
+    var output = document.getElementById('output');
 
   // Adds a listener for the "submit" event.
   form.addEventListener('submit', function(event) {
 
 
-    //event.preventDefault();
+    event.preventDefault();
+    
     var url = '', email = '';
     try{
       url = (form.url.value || event.srcElement.url.value);
@@ -57,6 +61,21 @@ ga('send', 'pageview');
     //tracker.send("event", "CheckURL", "submit", url + ' ' + email);
     
     //setTimeout(function(){window.location = lambdaurl}, 200);
+    
+     var xhr = new XMLHttpRequest();
+    xhr.open('GET', lambdaurl, true);
+    xhr.responseType = 'text';
+
+    xhr.onload = function () {
+        if (xhr.readyState === xhr.DONE) {
+            if (xhr.status === 200) {
+
+                output.innerHTML=(xhr.responseText);
+            }
+        }
+    };
+
+xhr.send(null);
     
   });
 
