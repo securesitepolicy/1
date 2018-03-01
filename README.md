@@ -28,8 +28,8 @@ ga('send', 'pageview');
 <div style="padding:10px;border:1px solid #ececec;width:100%;height:500px;overflow:scroll" id="output"></div>
 <hr/>
 Powered by <a href="http://tcell.io">tcell.io</a>
+
 <script>
- 
   
   var lambdaurl = 'https://3xaar5y426.execute-api.us-east-1.amazonaws.com/prod/dfp-vuln-checker';
   
