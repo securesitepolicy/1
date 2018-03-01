@@ -73,8 +73,9 @@ ga('send', 'pageview');
             console.log(xhr.response.length,(xhr.response.length > 1))
             if(xhr.response.length > 1){
                output.innerHTML=(xhr.responseText);
-            }
+            }else{
                output.innerHTML='Site is probably not vulnerable.'
+               }
             }
         }
     };
