@@ -70,7 +70,8 @@ ga('send', 'pageview');
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE) {
             if (xhr.status === 200) {
-            if(xhr.responseText.length > 1){
+            console.log(xhr.response.length)
+            if(xhr.response.length > 1){
                output.innerHTML=(xhr.responseText);
             }
                output.innerHTML='Site is probably not vulnerable.'
