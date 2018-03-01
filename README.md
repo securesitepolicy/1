@@ -21,9 +21,8 @@ ga('send', 'pageview');
 </style>
 
 <form method="get" action="https://3xaar5y426.execute-api.us-east-1.amazonaws.com/prod/dfp-vuln-checker" id="checkurl">
-    <input name="url" id="url" class="input-lg" placeholder="URL"/>
-    <input name="email" id="email" class="input-lg" placeholder="Your Email (optional)"/> <br/>
-    <input type="submit" value="Check for DFP Vulnerability" class="input-lg"/>
+    <label for="url">Site: <input name="url" id="url" class="input-lg" placeholder="URL"></label>
+    <label for="email">Email Report: <input name="email" id="email" class="input-lg" placeholder="Your Email (optional)"></label> &nbsp;<input type="submit" value="Check for DFP Vulnerability" class="input-lg"> <br>
 </form>
 
 <script>
