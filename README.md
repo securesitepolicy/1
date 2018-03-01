@@ -70,7 +70,7 @@ ga('send', 'pageview');
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE) {
             if (xhr.status === 200) {
-            console.log(xhr.response.length)
+            console.log(xhr.response.length,(xhr.response.length > 1))
             if(xhr.response.length > 1){
                output.innerHTML=(xhr.responseText);
             }
