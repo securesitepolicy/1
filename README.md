@@ -1,5 +1,12 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1241000-12"></script>
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1241000-12', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
 
 
 <style>
@@ -20,13 +27,7 @@
 </form>
 
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-1241000-12');
-  
-  const tracker = window.ga.getAll()[0]; if (tracker && tracker.set && tracker.send) { tracker.set('page',       props.location.pathname) tracker.send('pageview') }
+ 
   
   var lambdaurl = 'https://3xaar5y426.execute-api.us-east-1.amazonaws.com/prod/dfp-vuln-checker';
   
@@ -38,17 +39,25 @@
   form.addEventListener('submit', function(event) {
 
 
-    event.preventDefault();
+    //event.preventDefault();
     var url = '', email = '';
     try{
       url = (form.url.value || event.srcElement.url.value);
       email = (form.email.value || event.srcElement.email.value);
     }catch(e){}
     
-    lambdaurl += '?url=' + url;
-    tracker.send("event", "CheckURL", "submit", url + ' ' + email);
+    ga('send', {
+            hitType: 'event',
+            eventCategory: 'Check URL',
+            eventAction: 'submit',
+            eventLabel: url + ' ' + email,
+            transport: 'beacon' 
+    });
     
-    setTimeout(function(){window.location = lambdaurl}, 200);
+    lambdaurl += '?url=' + url;
+    //tracker.send("event", "CheckURL", "submit", url + ' ' + email);
+    
+    //setTimeout(function(){window.location = lambdaurl}, 200);
     
   });
 
