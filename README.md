@@ -25,7 +25,7 @@ ga('send', 'pageview');
     <label for="email">Email Report: <input name="email" id="email" class="input-lg" placeholder="Your Email (optional)"></label> &nbsp;<input type="submit" value="Check for DFP Vulnerability" class="input-lg"> <br>
 </form>
 <hr/>
-<div style="border:1px solid #evevev;width:100%;height:500px;hidden:scroll" id="output"></div>
+<div style="border:1px solid #ececec;width:100%;height:500px;overflow:scroll" id="output"></div>
 
 <script>
  
