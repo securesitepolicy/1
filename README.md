@@ -65,12 +65,15 @@ ga('send', 'pageview');
      var xhr = new XMLHttpRequest();
     xhr.open('GET', lambdaurl, true);
     xhr.responseType = 'text';
-
+    output.innerHTML='Checking site now....'
+    
     xhr.onload = function () {
         if (xhr.readyState === xhr.DONE) {
             if (xhr.status === 200) {
-
-                output.innerHTML=(xhr.responseText);
+            if(xhr.responseText.length > 1){
+               output.innerHTML=(xhr.responseText);
+            }
+               output.innerHTML='Site is probably not vulnerable.'
             }
         }
     };
